@@ -1,0 +1,22 @@
+[alias]
+	s = status
+	a = add
+	aa = add --all
+	c = commit -m 
+	ch = checkout
+	l = log --graph --oneline
+
+# Used for commit info
+[user]
+	email = 'email'
+	name = 'name'
+[core]
+	editor = 'main external editor' # something like VSCode\\Microsoft VS Code\\bin\\code\" --wait
+	longpaths = true 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[difftool]
+	
