@@ -1,22 +1,37 @@
+# Author: James Mok
+# Used for commit info
+[user]
+	email = email
+	name = name
+
+# Shorten git commands
 [alias]
 	s = status
 	a = add
 	aa = add --all
 	c = commit -m 
+	cam = commit --all -m 
 	ch = checkout
 	l = log --graph --oneline
-
-# Used for commit info
-[user]
-	email = 'email'
-	name = 'name'
+	d = difftool
 [core]
-	editor = 'main external editor' # something like VSCode\\Microsoft VS Code\\bin\\code\" --wait
+	editor = code
 	longpaths = true 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[difftool]
+
+# Tool for diff-ing files
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+# Tool for merging
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 	
